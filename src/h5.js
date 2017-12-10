@@ -1,3 +1,15 @@
 /**
  * Created by Administrator on 2017/12/10.
  */
+import App from './layouts/app/app';
+
+
+window.wx = require('../libs/weixin-1.0.0');
+window.APP = require('../libs/APP');
+window.Share = require('../libs/share');
+
+
+let div = document.createElement('div');
+document.body.appendChild(div);
+
+ReactDOM.render(<App />, div);

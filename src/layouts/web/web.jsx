@@ -1,8 +1,6 @@
 /**
  * Created by Administrator on 2017/12/10.
  */
-
-import React from 'react';
 import './web.less';
 
 class Web extends React.Component {
@@ -11,7 +9,7 @@ class Web extends React.Component {
     }
 
     render() {
-        return <div></div>
+        return <div>Web</div>
     }
 }
 
