@@ -10,7 +10,7 @@ class App extends React.Component {
             headerImg: require('./images/header.jpg'),
             logoImg: "https://ami-img.b0.upaiyun.com/activityNew/Indianamb/common/img-logo.png",
             bodyImg: require('./images/img-step1.jpg'),
-            footerImg: APP.BROWSER.isclient ? require('./images/footer-app.jpg') : require('./images/footer-app.jpg')
+            footerImg: APP.BROWSER.isclient ? require('./images/footer-app.jpg') : require('./images/footer-wechat.jpg')
         }
     }
 
@@ -19,6 +19,7 @@ class App extends React.Component {
         return <div className="app">
             <div className="header">
                 <img src={headerImg}/>
+                <div className="logo"></div>
             </div>
             <div className="body">
                 <img src={bodyImg}/>
