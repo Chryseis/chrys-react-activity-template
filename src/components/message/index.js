@@ -5,14 +5,16 @@ import Message from './message';
 
 let messageInstance;
 
-const getInstance = () => {
+const getInstance = (content) => {
     if (!messageInstance) {
-        messageInstance = Message.newInstance();
+        messageInstance = Message.newInstance(content);
     }
     return messageInstance;
 }
 
-const info = (content) => {
-    let instance = getInstance();
-    instance.info(content);
-}
+export default {
+    show(){
+        let instance = getInstance(content);
+        instance.show();
+    }
+};

@@ -11,6 +11,7 @@ class Message extends React.Component {
         this.state = {
             visible: false
         }
+        this.close = this.close.bind(this);
     }
 
     static propsType = {
@@ -26,7 +27,15 @@ class Message extends React.Component {
     }
 
     info = () => {
+        this.setState(preState => {
+            return !preState.visible;
+        });
+    }
 
+    close = () => {
+        this.setState({
+            visible: false
+        })
     }
 
     render() {
@@ -36,20 +45,21 @@ class Message extends React.Component {
             <div className="message-wrapper">
                 <div className="header">{title}</div>
                 <div className="body">{content}</div>
-                <div className="footer">{btnText}</div>
+                <div className="footer" onClick={this.close}>{btnText}</div>
             </div>
         </div>
     }
 }
 
-Message.newInstance = function () {
+Message.newInstance = function (properties) {
+    const {...props} = properties;
     let div = document.createElement('div');
     document.body.appendChild(div);
 
-    const message = ReactDOM.render(<Message/>, div);
+    const message = ReactDOM.render(<Message {...props}/>, div);
     return {
-        info(content){
-            message.info(content);
+        show(){
+            message.show();
         },
         destroy() {
             ReactDOM.unmountComponentAtNode(div);
