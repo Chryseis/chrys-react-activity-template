@@ -26,7 +26,7 @@ class Message extends React.Component {
         btnText: '确定'
     }
 
-    info = () => {
+    show = () => {
         this.setState(preState => {
             return !preState.visible;
         });
