@@ -8,6 +8,9 @@ import './message.less'
 class Message extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            visible: false
+        }
     }
 
     static propsType = {
@@ -22,14 +25,36 @@ class Message extends React.Component {
         btnText: '确定'
     }
 
+    info = () => {
+
+    }
+
     render() {
         const {title, content, btnText} = this.props;
-        return <div className="message-mask">
+        const {visible} = this.state;
+        return <div className="message-mask" style={{display: visible ? 'block' : 'none'}}>
             <div className="message-wrapper">
-                <div className="header"></div>
-                <div className="body"></div>
-                <div className="footer"></div>
+                <div className="header">{title}</div>
+                <div className="body">{content}</div>
+                <div className="footer">{btnText}</div>
             </div>
         </div>
     }
 }
+
+Message.newInstance = function () {
+    let div = document.createElement('div');
+    document.body.appendChild(div);
+
+    const message = ReactDOM.render(<Message/>, div);
+    return {
+        info(content){
+            message.info(content);
+        },
+        destroy() {
+            ReactDOM.unmountComponentAtNode(div);
+            document.body.removeChild(div);
+        }
+    }
+}
+export default Message;
