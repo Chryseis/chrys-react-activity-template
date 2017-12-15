@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2017/12/10.
  */
+import message from '../../components/message'
 import './app.less';
 
 class App extends React.Component {
@@ -25,6 +26,9 @@ class App extends React.Component {
             </div>
             <div className="footer">
                 <img src={footerImg}/>
+                <div className="btn paper"
+                     onClick={() => APP.JUMP("https://gift.yingyinglicai.com/activity/hongbao/8820160427000195")}></div>
+                <div className="btn share" onClick={() => message.info()}></div>
             </div>
         </div>
     }

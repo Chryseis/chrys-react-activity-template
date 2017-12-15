@@ -13,7 +13,7 @@ const getInstance = (content) => {
 }
 
 export default {
-    show(){
+    info(content){
         let instance = getInstance(content);
         instance.show();
     }

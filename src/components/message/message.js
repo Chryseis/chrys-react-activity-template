@@ -2,6 +2,7 @@
  * Created by Administrator on 2017/12/10.
  */
 import PropTypes from 'prop-types';
+import  {Transition} from 'react-transition-group'
 import './message.less'
 
 
@@ -27,9 +28,9 @@ class Message extends React.Component {
     }
 
     show = () => {
-        this.setState(preState => {
-            return !preState.visible;
-        });
+        this.setState({
+            visible: true
+        })
     }
 
     close = () => {
@@ -41,18 +42,21 @@ class Message extends React.Component {
     render() {
         const {title, content, btnText} = this.props;
         const {visible} = this.state;
-        return <div className="message-mask" style={{display: visible ? 'block' : 'none'}}>
-            <div className="message-wrapper">
-                <div className="header">{title}</div>
-                <div className="body">{content}</div>
-                <div className="footer" onClick={this.close}>{btnText}</div>
-            </div>
-        </div>
+        return <Transition in={visible} timeout={500} appear unmountOnExit>
+            {
+                status => <div className={`message-mask ${status}`}>
+                    <div className="message-wrapper">
+                        <div className="header">{title}</div>
+                        <div className="body">{content}</div>
+                        <div className="footer" onClick={this.close}>{btnText}</div>
+                    </div>
+                </div>
+            }
+        </Transition>
     }
 }
 
-Message.newInstance = function (properties) {
-    const {...props} = properties;
+Message.newInstance = function (props) {
     let div = document.createElement('div');
     document.body.appendChild(div);
 
