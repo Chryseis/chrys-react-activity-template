@@ -5,8 +5,8 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        app: [path.resolve(__dirname, '../src/h5'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base')],
-        web: [path.resolve(__dirname, '../src/pc'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base')]
+        app: [path.resolve(__dirname, '../src/h5'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base'), 'babel-polyfill'],
+        web: [path.resolve(__dirname, '../src/pc'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base'), 'babel-polyfill']
     },
     devtool: "source-map",
     module: {
