@@ -2,8 +2,8 @@
  * Created by Administrator on 2017/12/10.
  */
 import PropTypes from 'prop-types';
-import  {Transition} from 'react-transition-group'
-import './message.less'
+import  {Transition} from 'react-transition-group';
+import './message.less';
 
 
 class Message extends React.Component {
