@@ -6,10 +6,11 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 const baseWebpackConfig = require('./webpack.base.conf');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const serverConfig = require('../server-conf.json');
 
 module.exports = merge(baseWebpackConfig, {
     output: {
-        path: path.resolve(__dirname, '../dist/1.0.1'),
+        path: path.resolve(__dirname, `../dist/${serverConfig.name}/${serverConfig.version}`),
         publicPath: '/',
         filename: 'static/js/[name].js',
         sourceMapFilename: '[file].map'
@@ -27,17 +28,17 @@ module.exports = merge(baseWebpackConfig, {
             sourceMap: true
         }),
         new webpack.ProvidePlugin({
-            "React":"react",
-            "ReactDOM":"react-dom"
+            "React": "react",
+            "ReactDOM": "react-dom"
         }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: path.resolve(__dirname,'../template/index.html'),
+            template: path.resolve(__dirname, '../template/index.html'),
             chunks: [`app`]
         }),
         new HtmlWebpackPlugin({
             filename: 'web.html',
-            template: path.resolve(__dirname,'../template/web.html'),
+            template: path.resolve(__dirname, '../template/web.html'),
             chunks: [`web`]
         })
     ]
