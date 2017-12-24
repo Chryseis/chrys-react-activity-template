@@ -1,7 +1,8 @@
 /**
  * Created by Administrator on 2017/11/9.
  */
-module.exports = {
+
+module.exports = ({file, options, env}) => ({
     plugins: [
         require('autoprefixer'),
         require('postcss-pxtorem')({
@@ -9,4 +10,4 @@ module.exports = {
             propList: ['*', '!letter-spacing']
         })
     ]
-}
+})

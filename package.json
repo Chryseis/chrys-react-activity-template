@@ -49,5 +49,13 @@
     "react-dom": "^16.2.0",
     "react-iscroll": "^2.0.3",
     "react-transition-group": "^2.2.1"
+  },
+  "upyunServer": {
+    "bucket": "ami-dist",
+    "user": "fengyijun",
+    "password": "fyj90120",
+    "target": "/h5-activities/2017",
+    "local": "dist",
+    "filter": "*.js"
   }
 }
