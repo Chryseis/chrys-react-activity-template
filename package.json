@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config cfg/webpack.dev.conf --open",
-    "build": "cross-env NODE_ENV=production webpack --config cfg/webpack.prod.conf"
+    "build": "rimraf dist&&cross-env NODE_ENV=production webpack --config cfg/webpack.prod.conf&&chrys upload upyun"
   },
   "keywords": [
     "react"

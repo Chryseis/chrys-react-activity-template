@@ -7,12 +7,11 @@ const webpack = require('webpack');
 const baseWebpackConfig = require('./webpack.base.conf');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-
 module.exports = merge(baseWebpackConfig, {
     output: {
-        path: path.resolve(__dirname, '../dist'),
+        path: path.resolve(__dirname, '../dist/1.0.1'),
         publicPath: '/',
-        filename: 'js/[name].js',
+        filename: 'static/js/[name].js',
         sourceMapFilename: '[file].map'
     },
     plugins: [
