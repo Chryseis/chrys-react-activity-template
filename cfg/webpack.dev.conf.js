@@ -20,10 +20,7 @@ module.exports = merge(baseWebpackConfig, {
         port: 8088,
         contentBase: path.resolve(__dirname, '../'),
         compress: true,
-        historyApiFallback: true,
-        setup(app){
-            //todo api
-        }
+        historyApiFallback: true
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

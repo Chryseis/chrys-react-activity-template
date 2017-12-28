@@ -7,11 +7,27 @@ const webpack = require('webpack');
 const baseWebpackConfig = require('./webpack.base.conf');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const serverConfig = require('../server-conf.json');
+const isPc = require('../package.json').isPC;
+
+let htmlWebpackPlugins = isPc ? [new HtmlWebpackPlugin({
+    filename: 'index.html',
+    template: path.resolve(__dirname, '../template/index.html'),
+    chunks: [`app`]
+}),
+    new HtmlWebpackPlugin({
+        filename: 'web.html',
+        template: path.resolve(__dirname, '../template/web.html'),
+        chunks: [`web`]
+    })] : [new HtmlWebpackPlugin({
+    filename: 'index.html',
+    template: path.resolve(__dirname, '../template/index.html'),
+    chunks: [`app`]
+})]
 
 module.exports = merge(baseWebpackConfig, {
     output: {
-        path: path.resolve(__dirname, `../dist/${serverConfig.name}/${serverConfig.version}`),
-        publicPath: '/',
+        path: path.resolve(__dirname, `../dist/${serverConfig.upyunName}/${serverConfig.version}`),
+        publicPath: `https://fe.yingyinglicai.com/h5-activities/2017/${serverConfig.upyunName}/${serverConfig.version}/`,
         filename: 'static/js/[name].js',
         sourceMapFilename: '[file].map'
     },
@@ -30,16 +46,6 @@ module.exports = merge(baseWebpackConfig, {
         new webpack.ProvidePlugin({
             "React": "react",
             "ReactDOM": "react-dom"
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: path.resolve(__dirname, '../template/index.html'),
-            chunks: [`app`]
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'web.html',
-            template: path.resolve(__dirname, '../template/web.html'),
-            chunks: [`web`]
         })
-    ]
+    ].concat(htmlWebpackPlugins)
 })
