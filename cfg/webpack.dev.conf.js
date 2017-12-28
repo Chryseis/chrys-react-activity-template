@@ -17,7 +17,7 @@ module.exports = merge(baseWebpackConfig, {
     },
     devServer: {
         host: ip,
-        port: 8088,
+        port: 8089,
         contentBase: path.resolve(__dirname, '../'),
         compress: true,
         historyApiFallback: true

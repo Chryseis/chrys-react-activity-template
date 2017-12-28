@@ -30,11 +30,11 @@ class App extends React.Component {
                 <img src={footerImg}/>
                 <div className="btn rules" onClick={() => this.setState({visible: true})}></div>
                 <div className="btn paper"
-                     onClick={() => APP.JUMP("https://gift.yingyinglicai.com/activity/hongbao/8820160427000195")}></div>
-                <div className="btn share" onClick={() => message.info()}></div>
+                     onTouchTap={() => APP.JUMP("https://gift.yingyinglicai.com/activity/hongbao/8820160427000195")}></div>
+                <div className="btn share" onTouchTap={() => message.info()}></div>
             </div>
             <Modal visible={visible}>
-                <div className="rules-wrapper" onClick={() => this.setState({visible: false})}>haha123</div>
+                <div className="rules-wrapper" onTouchTap={() => this.setState({visible: false})}>haha123</div>
             </Modal>
         </div>
     }

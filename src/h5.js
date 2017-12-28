@@ -2,6 +2,9 @@
  * Created by Administrator on 2017/12/10.
  */
 import App from './layouts/app/app';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
 
 
 window.wx = require('../libs/weixin-1.0.0');
