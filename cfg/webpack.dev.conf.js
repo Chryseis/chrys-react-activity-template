@@ -4,23 +4,37 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseWebpackConfig = require('./webpack.base.conf');
 const {ip} = require('./utils');
+const isPc = require('../package.json').isPC;
+
+let htmlWebpackPlugins = isPc ? [new HtmlWebpackPlugin({
+    filename: 'index.html',
+    template: path.resolve(__dirname, '../template/index.html'),
+    chunks: [`app`]
+}),
+    new HtmlWebpackPlugin({
+        filename: 'web.html',
+        template: path.resolve(__dirname, '../template/web.html'),
+        chunks: [`web`]
+    })] : [new HtmlWebpackPlugin({
+    filename: 'index.html',
+    template: path.resolve(__dirname, '../template/index.html'),
+    chunks: [`app`]
+})]
 
 
 module.exports = merge(baseWebpackConfig, {
+    entry: {
+        app: ['webpack-hot-middleware/client?noInfo=false&reload=true', path.resolve(__dirname, '../src/h5'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base'), 'babel-polyfill'],
+        web: ['webpack-hot-middleware/client?noInfo=false&reload=true', path.resolve(__dirname, '../src/pc'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base'), 'babel-polyfill']
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/assets/',
+        publicPath: '/',
         filename: '[name].js',
         sourceMapFilename: '[file].map'
-    },
-    devServer: {
-        host: ip,
-        port: 8089,
-        contentBase: path.resolve(__dirname, '../'),
-        compress: true,
-        historyApiFallback: true
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
@@ -28,5 +42,5 @@ module.exports = merge(baseWebpackConfig, {
             "React": "react",
             "ReactDOM": "react-dom"
         })
-    ]
+    ].concat(htmlWebpackPlugins)
 })

@@ -25,6 +25,10 @@ let htmlWebpackPlugins = isPc ? [new HtmlWebpackPlugin({
 })]
 
 module.exports = merge(baseWebpackConfig, {
+    entry: {
+        app: [path.resolve(__dirname, '../src/h5'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base'), 'babel-polyfill'],
+        web: [path.resolve(__dirname, '../src/pc'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base'), 'babel-polyfill']
+    },
     output: {
         path: path.resolve(__dirname, `../dist/${serverConfig.upyunName}/${serverConfig.version}`),
         publicPath: `https://fe.yingyinglicai.com/h5-activities/2017/${serverConfig.upyunName}/${serverConfig.version}/`,
