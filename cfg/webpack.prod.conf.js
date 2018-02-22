@@ -31,7 +31,7 @@ module.exports = merge(baseWebpackConfig, {
     },
     output: {
         path: path.resolve(__dirname, `../dist/${serverConfig.upyunName}/${serverConfig.version}`),
-        publicPath: `https://fe.yingyinglicai.com/h5-activities/2017/${serverConfig.upyunName}/${serverConfig.version}/`,
+        publicPath: `https://fe.yingyinglicai.com/h5-activities/2018/${serverConfig.upyunName}/${serverConfig.version}/`,
         filename: 'static/js/[name].js',
         sourceMapFilename: '[file].map'
     },
