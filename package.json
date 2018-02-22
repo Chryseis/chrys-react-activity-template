@@ -53,6 +53,7 @@
     "moment": "^2.19.3",
     "prop-types": "^15.6.0",
     "react": "^15.6.2",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^15.6.2",
     "react-iscroll": "^2.0.3",
     "react-tap-event-plugin": "^2.0.1",
