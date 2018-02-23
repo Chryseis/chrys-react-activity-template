@@ -1,7 +1,8 @@
 /**
  * Created by Administrator on 2017/12/10.
  */
-import React from 'react'
+import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import  {Transition} from 'react-transition-group';
 import './message.less';
