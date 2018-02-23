@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2017/12/10.
  */
+import React from 'react';
 import createContainer from '../../common/js/createContainer';
 import  {Transition} from 'react-transition-group';
 import './modal.less';

@@ -27,8 +27,8 @@ let htmlWebpackPlugins = isPc ? [new HtmlWebpackPlugin({
 
 module.exports = merge(baseWebpackConfig, {
     entry: {
-        app: ['webpack-hot-middleware/client?noInfo=false&reload=true', path.resolve(__dirname, '../src/h5'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base'), 'babel-polyfill'],
-        web: ['webpack-hot-middleware/client?noInfo=false&reload=true', path.resolve(__dirname, '../src/pc'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base'), 'babel-polyfill']
+        app: ['webpack-hot-middleware/client?noInfo=false&reload=true', path.resolve(__dirname, '../src/h5'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base')],
+        web: ['webpack-hot-middleware/client?noInfo=false&reload=true', path.resolve(__dirname, '../src/pc'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base')]
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -38,9 +38,9 @@ module.exports = merge(baseWebpackConfig, {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.ProvidePlugin({
-            "React": "react",
-            "ReactDOM": "react-dom"
-        })
+        // new webpack.ProvidePlugin({
+        //     "React": "react",
+        //     "ReactDOM": "react-dom"
+        // })
     ].concat(htmlWebpackPlugins)
 })

@@ -1,6 +1,8 @@
 /**
  * Created by Administrator on 2017/12/16.
  */
+import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 const createContainer = (DecoratorsComponent) => {

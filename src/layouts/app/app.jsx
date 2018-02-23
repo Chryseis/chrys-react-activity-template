@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2017/12/10.
  */
+import React from 'react'
 import message from '../../components/message';
 import Modal from '../../components/modal';
 import './app.less';
