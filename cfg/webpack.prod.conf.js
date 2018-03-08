@@ -8,6 +8,7 @@ const baseWebpackConfig = require('./webpack.base.conf');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const serverConfig = require('../server-conf.json');
 const isPc = require('../package.json').isPC;
+const upyunPath=require('../package.json').upyunServer.target;
 
 let htmlWebpackPlugins = isPc ? [new HtmlWebpackPlugin({
     filename: 'index.html',
@@ -26,12 +27,12 @@ let htmlWebpackPlugins = isPc ? [new HtmlWebpackPlugin({
 
 module.exports = merge(baseWebpackConfig, {
     entry: {
-        app: [path.resolve(__dirname, '../src/h5'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base'), 'babel-polyfill'],
-        web: [path.resolve(__dirname, '../src/pc'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base'), 'babel-polyfill']
+        app: [path.resolve(__dirname, '../src/h5'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base')],
+        web: [path.resolve(__dirname, '../src/pc'), path.resolve(__dirname, '../src/common/css/reset'), path.resolve(__dirname, '../src/common/css/base')]
     },
     output: {
         path: path.resolve(__dirname, `../dist/${serverConfig.upyunName}/${serverConfig.version}`),
-        publicPath: `https://fe.yingyinglicai.com/h5-activities/2018/${serverConfig.upyunName}/${serverConfig.version}/`,
+        publicPath: `https://fe.yingyinglicai.com${upyunPath}/${serverConfig.upyunName}/${serverConfig.version}/`,
         filename: 'static/js/[name].js',
         sourceMapFilename: '[file].map'
     },
@@ -46,10 +47,6 @@ module.exports = merge(baseWebpackConfig, {
                 warnings: false
             },
             sourceMap: true
-        }),
-        new webpack.ProvidePlugin({
-            "React": "react",
-            "ReactDOM": "react-dom"
         })
     ].concat(htmlWebpackPlugins)
 })
