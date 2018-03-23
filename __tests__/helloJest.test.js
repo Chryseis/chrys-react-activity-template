@@ -16,7 +16,7 @@ describe('my beverage', () => {
 
 describe('my other beverage', () => {
     test('two plus two is four', () => {
-        expect(2 + 3).toBe(4);
+        expect(2 + 3).toBe(5);
     });
 
     test('object assignment', () => {
