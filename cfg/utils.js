@@ -14,11 +14,11 @@ exports.ip = getIp()
 function getIp() {
     var ip = "127.0.0.1";
 
-    console.log(os.networkInterfaces())
+    let ipObj = os.networkInterfaces()['本地连接'] || os.networkInterfaces()['en0'];
 
-    for(var i=0;i<os.networkInterfaces().en0.length;i++){
-        if(os.networkInterfaces().en0[i].family=='IPv4'){
-            ip=os.networkInterfaces().en0[i].address;
+    for (var i = 0; i < ipObj.length; i++) {
+        if (ipObj[i].family == 'IPv4') {
+            ip = ipObj[i].address;
         }
     }
     return ip
