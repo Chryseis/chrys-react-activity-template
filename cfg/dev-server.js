@@ -18,7 +18,7 @@ app.use(devMiddleware(compiler, {
 //hot reload
 app.use(hotMiddleware(compiler, {}))
 
-app.listen(3000, () => {
+app.listen(3001, () => {
     console.log('app listening 3000');
-    open(`http://${ip}:3000`);
+    open(`http://${ip}:3001`);
 })
