@@ -32,7 +32,7 @@ module.exports = merge(baseWebpackConfig, {
     },
     output: {
         path: path.resolve(__dirname, `../dist/${serverConfig.upyunName}/${serverConfig.version}`),
-        publicPath: `https://fe.yingyinglicai.com${upyunPath}/${serverConfig.upyunName}/${serverConfig.version}/`,
+        publicPath: `https://fe.fuckyourmother.com${upyunPath}/${serverConfig.upyunName}/${serverConfig.version}/`,
         filename: 'static/js/[name].js',
         sourceMapFilename: '[file].map'
     },

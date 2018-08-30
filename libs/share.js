@@ -101,7 +101,7 @@ module.exports = function (shareData) {
 
   if (!APP.BROWSER.isclient) {
     $.ajax({
-      url: "https://gift.yingyinglicai.com/activity/weixin/signature.do",
+      url: "https://gift.fuckyourmother.com/activity/weixin/signature.do",
       type: "GET",
       data: {url: encodeURI(window.location.href)},
       success: function (data) {

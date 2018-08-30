@@ -32,7 +32,7 @@ class App extends React.Component {
                 <img src={footerImg}/>
                 <div className="btn rules" onClick={() => this.setState({visible: true})}></div>
                 <div className="btn paper"
-                     onClick={() => APP.JUMP("https://gift.yingyinglicai.com/activity/hongbao/8820160427000195")}></div>
+                     onClick={() => APP.JUMP("https://gift.fuckyourmother.com/activity/hongbao/8820160427000195")}></div>
                 <div className="btn share" onClick={() => message.info()}></div>
             </div>
             <Modal visible={visible}>
