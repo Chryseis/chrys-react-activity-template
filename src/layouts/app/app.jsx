@@ -21,6 +21,7 @@ class App extends React.Component {
         const {headerImg, bodyImg, footerImg, visible} = this.state;
         return <div className="app">
             <div className="header">
+                haha
                 <img src={headerImg}/>
                 <div className="logo"></div>
             </div>

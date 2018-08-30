@@ -14,7 +14,7 @@ describe('my beverage', () => {
     });
 });
 
-describe('my other beverage', () => {
+describe.only('my other beverage', () => {
     test('two plus two is four', () => {
         expect(2 + 3).toBe(5);
     });
