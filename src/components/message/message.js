@@ -44,7 +44,7 @@ class Message extends React.Component {
     render() {
         const {title, content, btnText} = this.props;
         const {visible} = this.state;
-        return <Transition in={visible} timeout={500} appear unmountOnExit>
+        return <Transition in={visible} timeout={500} appear unmountOnExit  onEnter={_ => ModalHelper.afterOpen()}  onExit={_ => ModalHelper.beforeClose()}>
             {
                 status => <div className={`message-mask ${status}`}>
                     <div className="message-wrapper">

@@ -1,6 +1,6 @@
 {
   "name": "react-activity-template",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "create a react activity template",
   "main": "index.js",
   "isPC": false,
@@ -15,6 +15,8 @@
   "author": "allen",
   "license": "ISC",
   "devDependencies": {
+    "@yylc/babel-plugin-demand-loading": "^1.0.0",
+    "@yylc/kit": "^1.0.3",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.3",
     "babel-jest": "^22.4.3",

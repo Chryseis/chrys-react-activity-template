@@ -14,7 +14,7 @@ class Modal extends React.Component {
 
     render() {
         const {visible} = this.props;
-        return <Transition in={visible} timeout={500} appear unmountOnExit>
+        return <Transition in={visible} timeout={500} appear unmountOnExit onEnter={_ => ModalHelper.afterOpen()}  onExit={_ => ModalHelper.beforeClose()}>
             {
                 status =>
                     <div className={`modal-mask ${status}`}>
